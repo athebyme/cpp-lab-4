@@ -24,7 +24,19 @@ namespace Geometry {
         return this->b * this->a * M_PI;
     }
 
-    double Ellipse::coordinates() {
-        return (this->x, this->y);
+    pair<double,double> Ellipse::coordinates() {
+        return make_pair(this->x, this->y);
+    }
+
+    string Ellipse::name() {
+        return this->_name;
+    }
+
+    double Ellipse::perimeter() {
+        return 4 * (M_PI * a * b + pow((a-b),2))/(a+b);
+    }
+
+    pair<double, double> Ellipse::centroid() {
+        return make_pair(x, y);
     }
 }

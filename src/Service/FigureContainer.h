@@ -12,28 +12,10 @@ namespace Service{
         Container();
         static Container* create();
         void addFigure(std::unique_ptr<Figure> figure);
+        vector<std::unique_ptr<Figure>> & getFigures();
         double TotalArea();
+        double TotalPerimeter();
     };
-
-    Container *Container::create() {
-        return new Container();
-    }
-
-    double Container::TotalArea(){
-        double area = 0;
-        for (const auto &figure: figures_){
-            area+=figure->area();
-        }
-        return area;
-    }
-
-    void Container::addFigure(std::unique_ptr<Figure> figure) {
-        figures_.push_back(std::move(figure));
-    }
-
-    Container::Container() {
-        this->figures_ = std::vector<std::unique_ptr<Figure>>();
-    }
 }
 
 #endif
