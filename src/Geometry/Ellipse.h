@@ -13,13 +13,18 @@ namespace Geometry {
         double perimeter() override;
         std::string name() override;
         pair<double, double> centroid () override;
-
-
-        explicit Ellipse(double x, double y, double a, double b);
+        double mass() override;
+        double size() override;
+        unique_ptr<Figure> getSelf() override;
+        explicit Ellipse(double x, double y, double a, double b, double mass);
         static std::unique_ptr<Ellipse> create(int argc, char **argv);
     private:
         std::string _name = "Ellipse";
-        double x, y, a, b;
+        double x, y;
+        double a, b;
+        double _mass;
+
+
     };
 
 }

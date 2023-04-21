@@ -4,6 +4,7 @@
 #include <memory>
 #include "../Geometry/Figure.h"
 
+using namespace std;
 namespace Service{
     class Container{
     private:
@@ -15,6 +16,9 @@ namespace Service{
         vector<std::unique_ptr<Figure>> & getFigures();
         double TotalArea();
         double TotalPerimeter();
+        double TotalMemSize();
+        pair<double, double> centroid();
+        vector<unique_ptr<Figure>> getSortedFiguresByMass() const;
     };
 }
 

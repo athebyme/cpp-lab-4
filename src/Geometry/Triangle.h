@@ -14,13 +14,16 @@ namespace Geometry{
         string name() override;
         double perimeter() override;
         pair<double, double> centroid () override;
+        double mass() override;
+        double size() override;
+        unique_ptr<Figure> getSelf() override;
 
-
-        static unique_ptr<Triangle> create(double x, double y, double side1, double side2, double side3);
-        explicit Triangle(double x, double y, double side1, double side2, double side3);
+        static unique_ptr<Triangle> create(double x, double y, double side1, double side2, double side3, double mass);
+        explicit Triangle(double x, double y, double side1, double side2, double side3, double mass);
     private:
         double x_, y_;
         double side1_, side2_, side3_;
+        double _mass;
         string _name = "Triangle";
     };
 
